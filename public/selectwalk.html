@@ -7,7 +7,7 @@
         <!--Custom CSS-->
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
-    <body>
+    <body id="main">
         <div class="container" id="page-container">
             <h1 id="app-name">
                 <span class="glyphicon glyphicon glyphicon-chevron-right"></span> DoubleKnot
@@ -15,6 +15,47 @@
             <h2 id="page-header">
                 Select your walk.
             </h2>
+            <script>
+                function filer(locationPart){
+                    if locationPart =
+                }
+            </script>
+            <script>
+            function schedule(){
+                var island = document.getElementById('island').value;
+                if (island == "northIsland"){
+                document.getElementById("emptyOption").style.display="none"
+                document.getElementById("north").style.display ="inline"
+                } else{ 
+                document.getElementById("emptyOption").style.display="none"
+                document.getElementById("south").style.display="inline"
+                }
+            }
+            </script>
+
+            <h1>I am at 
+            <select name="island"id="island" onChange="schedule()">
+                <option value="default" disabled selected value></option>
+                <option value="northIsland">North Island</option>
+                <option value="southIsland">South Island</option>
+            </select>
+            </h1>
+            <h1>, and going to
+            <select name="empty" disabled id="emptyOption"></select>
+            <select name="northTracks" style="display:none" id="north">
+                <option value="lakeWaika">Lake Waikaremoana</option>
+                <option value="tongariro">Tongariro Northen Circuit</option>
+                <option value="whanganui">Whanganui Journey</option>
+            </select>
+            <select name="southTracks" style="display:none" id="south">
+                <option value="abelTasman">Abel Tasman Coast Track</option>
+                <option value="heaphy">Heaphy Track</option>
+                <option value="routeburn">Routeburn Track</option>
+                <option value="kepler">Kepler Track</option>
+                <option value="milford">Milford Track</option>
+                <option value="rakiura">Rakiura Track</option>
+            </select>
+            <h1>
             <script src="/js/fbLogin.js"></script>
             <script>
                 function fbLogout(){
