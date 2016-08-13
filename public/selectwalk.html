@@ -15,9 +15,18 @@
             <h2 id="page-header">
                 Select your walk.
             </h2>
-            <div class="btn-wrapper">
-                <label class="btn btn-info">
-                    Login with Facebook
+            <script src="/js/fbLogin.js"></script>
+            <script>
+                function fbLogout(){
+                    FB.logout(function(response) {
+                        // user is now logged out
+                        window.location="index.html";
+                    });
+                }
+            </script>
+            <div class="btn-wrapper" onclick="fbLogout()">
+                <label class="btn btn-info"">
+                    Logout
                 </label>
             </div>
         </div>
