@@ -10,17 +10,16 @@ function writeData(data) {
 		toRemove.push(alert);
 	}
 }
-
 function processData() {
 	for(var i = 0; i < toAlert.length; i++){
 		if(!toRemove.find(function (item){return item.token == toAlert[i].token})){
-		var alertTime = Date.parse(toAlert[i].time)
-		var currentTime = new Date()
-		if (currentTime.getTime()> alertTime.getTime()) {
-			//create post on facebook
-			toRemove.push(toAlert[i])
+			var alertTime = Date.parse(toAlert[i].time)
+			var currentTime = new Date()
+			if (currentTime.getTime()> alertTime.getTime()) {
+				//create post on facebook
+				toRemove.push(toAlert[i])
+			}
 		}
 	}
 }
-
 exports = module.exports = {writeData: writeData, processData:processData};

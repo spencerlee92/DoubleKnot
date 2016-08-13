@@ -1,3 +1,5 @@
+var alertHandler = require('./alertHandler');
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -56,5 +58,15 @@ app.use(function(err, req, res, next) {
   });
 });
 
+// POST method route
+app.post('/alert', function (req, res) {
+  alertHandler.writeData(res.body);
+  res.send('POST request to the homepage');
+});
+function callProcessData(){ alertHandler.processData()};
+callProcessData();
+app.listen(8000, function () {
+  console.log('Example app listening on port 8000!');
+});
 
 module.exports = app;
