@@ -77,3 +77,42 @@
       window.location="selectwalk.html";  
     });
   }
+
+function setAlert(){
+  $('insertFormIDHere').on("submit", function(event){
+    event.preventDefault();
+    var etaValue = paresInt($(this).serialize());
+    var eta = new Date(new Date() + etaValue*3600000);
+    msgType = 0;
+    sendFbPostRequest(msgType, eta);
+  });
+}
+
+function removeAlert(){
+  msgType = 1;
+  sendFbPostRequest(msgType);
+}
+
+function sendFbPostRequest(msgType, eta = null){
+    var response = FB.getAuthResponse();
+    if (response.status === 'connected') {
+      var accessToken = response.accessToken;
+      var fbPostObj = JSON.stringify({
+        "messageType" : msgType,
+        "time" : eta,
+        "token" : accessToken
+      });
+      $.post("localhost:3001",fbPostObj, function(status){
+        console.log(status);
+      });
+    } else if (response.status === 'not_authorized') {
+      // The person is logged into Facebook, but not your app.
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into this app.';
+    } else {
+      // The person is not logged into Facebook, so we're not sure if
+      // they are logged into this app or not.
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into Facebook.';
+    }
+};
