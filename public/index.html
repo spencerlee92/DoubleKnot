@@ -15,13 +15,16 @@
             <h2 id="page-header">
                 Start your adventure.
             </h2>
+            <script src="/js/fbLogin.js"></script>
             <div class="btn-wrapper">
                 <label class="btn btn-info">
                     Login with Facebook
                 </label>
-                <label class="btn btn-info">
-                    Login with Facebook
-                </label>
+            </div>
+            <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+            </fb:login-button>
+
+            <div id="status">
             </div>
         </div>
 
@@ -29,5 +32,6 @@
         <script src="./node_modules/jquery/dist/jquery.min.js"></script>
         <!--Bootstrap Script-->
         <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        
     </body>
 </html>
