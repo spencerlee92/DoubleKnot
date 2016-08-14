@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DoubleKnot</title>
+        <!--Boostrap's CSS-->
+        <link rel="stylesheet" type="text/css" href="lib/bootstrap/dist/css/bootstrap.min.css">
+        <!--Custom CSS-->
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="./lib/weather-icons-master/css/weather-icons.css">
+    </head>
+    <body>
+        
+             <header class="bs-docs-nav navbar navbar-static-top" id="top">
+                  <div class="container"> 
+                      <div class="navbar-header">
+                           <button aria-controls="bs-navbar" aria-expanded="false" class="collapsed navbar-toggle" data-target="#bs-navbar" data-toggle="collapse" type="button">
+                                <span class="sr-only">Toggle navigation</span> 
+                                <span class="icon-bar"></span> 
+                                <span class="icon-bar"></span> 
+                                <span class="icon-bar"></span>
+                                </button>
+                                <a href="../" class="navbar-brand">DoubleKnot</a>
+                                </div>
+                                <nav class="collapse navbar-collapse" id="bs-navbar"> 
+                                    <ul class="nav navbar-nav"> 
+                                
+                                <li class="dropdown" "> 
+                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
+                                    Great Walks 
+                                <b class="caret"></b> 
+                                 </a>
+                                <ul class="dropdown-menu"> 
+                                    <li><a href="#">Lake Waikaremoana</a></li> 
+                                    <li><a href="#">Tongariro Northern Circuit</a></li>  
+                                    <li><a href="#">Whanganui Journey</a></li>
+                                    <li><a href="#">Abel Tasman Coast Track</a></li>
+                                    <li><a href="#">Heaphy Track</a></li>
+                                    <li><a href="#">Milford Track</a></li>
+                                    <li><a href="#">Kepler Track</a></li>
+                                    <li><a href="#">Routeburn Track</a></li>
+                                    <li><a href="#">Rakiura Track</a></li>
+                                </ul> 
+                                </li>
+                                    </ul>
+                                </nav> 
+                </div> 
+             </header>
+
+        <div class="container" id="location-container">y
+
+            <h1>Lake Waikaremoana</h1>
+            <img src="./img/lake-waikaremoana.jpg">
+            <p class="text-right" id="showWea"></p>
+            <button id="test" >test</button>
+            <img id = "icon", src ="">
+            
+        </div>
+
+        <div class="container" id="weather-container">
+            <dl class="dl-horizontal">
+            <dt id="weatherText">Current Weather</dt>
+            <dd id="displayTemp"></dd>
+            </dl>
+            <i class="wi wi-night-sleet"></i>
+        </div>
+
+
+
+        </div>
+
+        <!--jQuery Script-->
+        <script src="/js/jquery.min.js"></script>
+        <!--Bootstrap Script-->
+        
+           <script type="text/javascript" src="main.js"></script>
+      
+    </body>
+</html>

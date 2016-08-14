@@ -3,9 +3,11 @@
     <head>
         <title>DoubleKnot</title>
         <!--Boostrap's CSS-->
+
         <link rel="stylesheet" type="text/css" href="lib/bootstrap/dist/css/bootstrap.min.css">
         <!--Custom CSS-->
         <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="./lib/weather-icons-master/css/weather-icons.css">
     </head>
     <body id="main">
         <div class="container" id="page-container">
@@ -15,19 +17,30 @@
             
         </div>
         <div class="container" id="mid-container">
-            <p>t</p>
+            
+           
+            <p  id="weatherText">Current weather</p>
+            <i id="icon" class="wi wi-day-sunny"></i>
+            <p  id="weatherText">Current Temperature</p>
+            <p id="showWea"></p>
             
             
+
         </div>
         <div class="container" id="btm-container">
-            <p>t</p>
+            <p >t</p>
             
             
         </div>
         </div>
-        <!--jQuery Script-->
-        <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+              <!--jQuery Script-->
+        <script src="/js/jquery.min.js"></script>
         <!--Bootstrap Script-->
-        <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        
+           <script type="text/javascript" src="main.js"></script>
+      
     </body>
 </html>
+
+
+
