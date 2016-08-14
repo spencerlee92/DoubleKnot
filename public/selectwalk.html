@@ -29,36 +29,36 @@
             }
             </script>
 
-            <h1>I am at 
-            <select name="island"id="island" onChange="schedule()">
-                <option value="default" disabled selected value></option>
-                <option value="northIsland">North Island</option>
-                <option value="southIsland">South Island</option>
-            </select>
-            </h1>
-            <h1>, and going to
-            <select name="empty" disabled id="emptyOption"></select>
-            <select name="northTracks" style="display:none" id="north">
-                <option value="Lake Waikaremoana">Lake Waikaremoana</option>
-                <option value="Tongariro Northen Circuit">Tongariro Northen Circuit</option>
-                <option value="Whanganui Journey">Whanganui Journey</option>
-            </select>
-            <select name="southTracks" style="display:none" id="south">
-                <option value="Abel Tasman Coast Track">Abel Tasman Coast Track</option>
-                <option value="Heaphy Track">Heaphy Track</option>
-                <option value="Routeburn Track">Routeburn Track</option>
-                <option value="Kepler Track">Kepler Track</option>
-                <option value="Milford Track">Milford Track</option>
-                <option value="Rakiura Track">Rakiura Track</option>
-            </select>
-            <h1>
+            <form method="GET" action="walk.html">
+                <h1>I am at 
+                <select name="island" id="island" onChange="schedule()">
+                    <option value="default" disabled selected value></option>
+                    <option value="northIsland">North Island</option>
+                    <option value="southIsland">South Island</option>
+                </select>
+                </h1>
+                <h1>, and going to
+                <select name="empty" disabled id="emptyOption"></select>
+                <select name="northTracks" style="display:none" id="north">
+                    <option value="Lake Waikaremoana">Lake Waikaremoana</option>
+                    <option value="Tongariro Northen Circuit">Tongariro Northen Circuit</option>
+                    <option value="Whanganui Journey">Whanganui Journey</option>
+                </select>
+                <select name="southTracks" style="display:none" id="south">
+                    <option value="Abel Tasman Coast Track">Abel Tasman Coast Track</option>
+                    <option value="Heaphy Track">Heaphy Track</option>
+                    <option value="Routeburn Track">Routeburn Track</option>
+                    <option value="Kepler Track">Kepler Track</option>
+                    <option value="Milford Track">Milford Track</option>
+                    <option value="Rakiura Track">Rakiura Track</option>
+                </select>
+                <h1>
 
-            <p>
-                <a href="walk.html">
-                <img src="http://downloadicons.net/sites/default/files/forward-button-icon-27809.png" width="42" height="42" border="0"></>
-                </a>
-            </p>
+                <button>
 
+                    <img src="http://downloadicons.net/sites/default/files/forward-button-icon-27809.png" width="42" height="42" border="0"></>
+                </button>
+            </form>
             <script>
                 function fbLogout(){
                     FB.logout(function(response) {
@@ -72,13 +72,6 @@
                     Logout
                 </label>
             </div>
-        </div>
-        <div>
-            <form id="myForm">
-                time in days:<br>
-                <input type="text" name="time" id="timeBox">
-                <button type="submit">Go</button>
-            </form>
         </div>
         <script src="/js/jquery.min.js"></script>
         <script src="/js/fbLogin.js"></script>
