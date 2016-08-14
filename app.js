@@ -58,8 +58,10 @@ app.use(function(err, req, res, next) {
   });
 });
 
+
 // POST method route
 app.post('/alert', function (req, res) {
+
   alertHandler.writeData(res.body);
   res.send('POST request to the homepage');
 });
