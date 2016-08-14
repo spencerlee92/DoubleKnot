@@ -27,13 +27,11 @@ var RakiuraTrack = new Loca("Rakiura Track", -46.860646, 168.057203);
 function sendRequest(loca, callback) {
     weatherAPI += "?" + "lat=" + loca.lat + "&" + "lon=" + loca.lon + "&" + "appid=" + weatherAppKey;
     $.ajax({
-        // url: weatherAPI,
         url: weatherAPI,
         type: "GET"
     })
         .done(function (data) {
         if (data.length != 0) {
-            //var weather = data.weather;
             var mainWea = data;
             callback(data);
         }
@@ -46,11 +44,13 @@ function sendRequest(loca, callback) {
         console.log(error.getAllResponseHeaders());
     });
 }
-testBtn.click(function () {
+$(document).ready(function () {
     sendRequest(LakeWaikaremoana, function (data) {
-        if (data.weather[0].main == "Clear") {
-            $("#icon").attr("src", "./img/sunny.png");
-        }
-        showWea.innerHTML = data.weather[0].main;
+        /*if(data.weather[0].main =="Clear"){
+            $(".").attr("src","./img/sunny.png");
+        }*/
+        var num = data.main.temp_max * 0.0215;
+        num = Math.round(num);
+        showWea.innerHTML = num + "&deg";
     });
 });

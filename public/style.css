@@ -31,6 +31,7 @@ body #page-container {
     padding: 20px 0;
 }
 
+<<<<<<< HEAD
 
 .bs-docs-nav {
     margin-bottom: 0;
@@ -40,7 +41,7 @@ body #page-container {
 }
 
 #weather-container{
-     margin-bottom: 0;
+    margin-bottom: 0;
     background-color: #fff;
     border-bottom: 0;
     opacity: 0.8;
@@ -65,5 +66,31 @@ body #page-container {
    
     opacity: 1;
     
+}
+#icon{
+    font-size:60px;
+}
+#weatherText{
+    font-size:30px;
+}
+#showWea{
+    font-size:30px;
+}
+
+
+
+#top-container{
+    background:white;
+    opacity:0.6;
+}
+
+#mid-container{
+    
+    background:white;
+    opacity:0.8;
+}
+#btm-container{
+    background:white;
+    opacity:0.6;
 
 }

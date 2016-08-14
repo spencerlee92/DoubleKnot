@@ -41,13 +41,13 @@ function sendRequest(loca, callback) : void {
     weatherAPI += "?"+"lat="+loca.lat+"&"+"lon="+loca.lon+"&"+"appid="+weatherAppKey;
 
     $.ajax({
-       // url: weatherAPI,
+      
        url:weatherAPI,
         type: "GET",  
     })
         .done(function (data) {
             if (data.length != 0) { 
-                //var weather = data.weather;
+                
                 var mainWea = data;
                 callback(data);
             } else {
@@ -60,12 +60,16 @@ function sendRequest(loca, callback) : void {
         });
 }
 
+$(document).ready(function(){
+sendRequest(LakeWaikaremoana, function (data) {
+        /*if(data.weather[0].main =="Clear"){
+            $(".").attr("src","./img/sunny.png");
+        }*/
+       
+        var num = data.main.temp_max*0.0215 ;
+        num = Math.round(num);
 
-testBtn.click(function () {
-    sendRequest(LakeWaikaremoana, function (data) {
-        if(data.weather[0].main =="Clear"){
-            $("#icon").attr("src","./img/sunny.png");
-        }
-        showWea.innerHTML = data.weather[0].main;
+        showWea.innerHTML = num+"&deg";
     });
 });
+
