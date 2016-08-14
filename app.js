@@ -27,6 +27,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 
+// POST method route
+app.post('/alert', function (req, res) {
+  console.log("entered post")
+  console.log(req.body);
+  alertHandler.writeData(req.body);
+  console.log("alert handler done")
+  res.send('POST request to the homepage');
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
@@ -59,12 +68,7 @@ app.use(function(err, req, res, next) {
 });
 
 
-// POST method route
-app.post('/alert', function (req, res) {
 
-  alertHandler.writeData(res.body);
-  res.send('POST request to the homepage');
-});
 function callProcessData(){ alertHandler.processData()};
 callProcessData();
 app.listen(8000, function () {
