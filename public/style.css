@@ -31,15 +31,66 @@ body #page-container {
     padding: 20px 0;
 }
 
+<<<<<<< HEAD
+
+.bs-docs-nav {
+    margin-bottom: 0;
+    background-color: #fff;
+    border-bottom: 0;
+    opacity: 0.7;
+}
+
+#weather-container{
+    margin-bottom: 0;
+    background-color: #fff;
+    border-bottom: 0;
+    opacity: 0.8;
+    font-size:20px;
+}
+
+
+#location-container{
+     margin-bottom: 0;
+    background-color: #fff;
+    border-bottom: 0;
+    opacity: 0.8;
+}
+
+.btn-test {
+    margin: 40px auto;
+    width: 500px;
+    
+}
+
+#weatherText{
+   
+    opacity: 1;
+    
+}
+#icon{
+    font-size:60px;
+}
+#weatherText{
+    font-size:30px;
+}
+#showWea{
+    font-size:30px;
+}
+
+
+
 #top-container{
     background:white;
     opacity:0.6;
 }
+
 #mid-container{
+    
     background:white;
     opacity:0.8;
 }
 #btm-container{
     background:white;
     opacity:0.6;
+
 }
