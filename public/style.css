@@ -31,3 +31,15 @@ body #page-container {
     padding: 20px 0;
 }
 
+#top-container{
+    background:white;
+    opacity:0.6;
+}
+#mid-container{
+    background:white;
+    opacity:0.8;
+}
+#btm-container{
+    background:white;
+    opacity:0.6;
+}
