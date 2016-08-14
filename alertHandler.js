@@ -5,14 +5,15 @@ toAlert = [];
 function writeData(data) {
 	var alert = data;
 	if(alert.messageType == 0){
-		postFb(alert.token, "Test Post A");
+		var msg = "Hey guys, I'm about to go on the " + alert.trackName + "! I should be back in " + alert.etaValue + " days.";
+		postFb(alert.token, msg);
 		toAlert.push(alert);
 	}
 	if(alert.messageType == 2){
-		postFb(alert.token, "Test Post 2");
+		var safe = "Hey! I'm back from my trip now.";
+		postFb(alert.token, safe);
 		toRemove.push(alert);
 	}
-	console.log(toAlert);
 }
 function processData() {
 	for(var i = 0; i < toAlert.length; i++){
@@ -22,7 +23,8 @@ function processData() {
 			var currentTime = new Date();
 			if (currentTime.getTime()> alertTime.getTime()) {
 				//create post on facebook
-				postFb(toAlert[i].token, "Test Post 0");
+				var warning = "I should've been back from my trip by now. Please try to contact me ASAP. - Posted automatically by DoubleKnot";
+				postFb(toAlert[i].token, warning);
 			
 				toRemove.push(toAlert[i])
 			}
@@ -31,7 +33,6 @@ function processData() {
 }
 function postFb(accessToken, post){
 	FB.setAccessToken(accessToken);
-	var body = 'Reading JS SDK documentation';
 	FB.api('/me/feed', 'post', { message: post }, function(response) {
 	  if (!response || response.error) {
 	    console.log('Error occured');
@@ -39,13 +40,6 @@ function postFb(accessToken, post){
 	    console.log('Post ID: ' + response.id);
   }
 });
-	// var body = post;
-	// FB.api('me/feed', 'post', { message: body }, function (res) {
-	//   if(!res || res.error) {
-	//     console.log(!res ? 'error occurred' : res.error);
-	//     return;
-	//   }
-	//   console.log('Post Id: ' + res.id);
-	// });
+
 }
 exports = module.exports = {writeData: writeData, processData:processData};
