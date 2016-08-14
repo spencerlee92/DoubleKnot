@@ -91,8 +91,15 @@ function setAlert(){
     var etaValue = parseInt(document.getElementById("timeBox").value);
     var eta = new Date();
     eta = new Date(eta.getTime() + etaValue*3600000);
+    var north = $("#north");
+    var south = $("#south");
+    if(north.is(":visible")){
+      var trackName = north.val();
+    }else{
+      var trackName = south.val();
+    }
     msgType = 0;
-    sendFbPostRequest(msgType, eta);
+    sendFbPostRequest(msgType, eta, trackName);
 }
 
 function removeAlert(){
@@ -100,14 +107,15 @@ function removeAlert(){
   sendFbPostRequest(msgType);
 }
 
-function sendFbPostRequest(msgType, eta){
+function sendFbPostRequest(msgType, eta, trackName){
     var response = FB.getAuthResponse();
     if (response.accessToken != null) {
       var accessToken = response.accessToken;
       var fbPostObj = {
         "messageType" : msgType,
         "time" : eta,
-        "token" : accessToken
+        "token" : accessToken,
+        "trackName" : trackName
       };
       $.post("/alert",fbPostObj, function(status){
         console.log(status);
