@@ -28,18 +28,18 @@
             };
         </script>
 
-        <script>
-            var text = [{"trackName":"Lake Waikaremoana","Length":"46km return","Walking and tramping":"3-4 days","Location":"East Coast","Difficulty":"Intermediate"},
-                        {"trackName":"Tangariro Northern Circuit","Length":"43.1km return","Walking and tramping":"3-4 days","Location":"Central North Island","Difficulty":"Intermediate"},
-                        {"trackName":"Whanganui Journey","Length":"87km or 145km one way","Kayaking and canoeing":"3 or 5 days","Location":"Manawatu/Whanganui","Difficulty":"Not Avaiable"},
-                        {"trackName":"Abel Tasman Coast Track","Length":"60km loop","Walking and tramping":"3-5 days","Location":"Nelson/Tasman","Difficulty":"Intermediate"},
-                        {"trackName":"Heaphy Track","Length":"78.4km return","Walking and tramping":"4-6 days","Location":"Nelson/Tasman","Difficulty":"Intermediate"},
-                        {"trackName":"Routeburn Track","Length":"32km one way","Walking and tramping":"2-4 days","Location":"Otago/Fiordland","Difficulty":"Intermediate"},
-                        {"trackName":"Kepler Track","Length":"53.5km one way","Walking and tramping":"4 days","Location":"Fiordland","Difficulty":"Intermediate"},
-                        {"trackName":"Milford Track","Length":"32km loop","Walking and tramping":"3 days","Location":"Southland","Difficulty":"Intermediate"}
-                        ];
-        <script>
-
+         <script>
+            var newText = {
+                "Lake Waikaremoana": {"length":"46km return","trackType":"Walking and tramping", "trackDuration":"3-4 days","location":"East Coast","difficulty":"Intermediate"},
+                "Tangariro Northern Circuit":{"length":"43.1km return","trackType":"Walking and tramping","trackDuration":"3-4 days","location":"Central North Island","difficulty":"Intermediate"},
+                "Whanganui Journey":{"length":"87km or 145km one way", "trackType":"Kayaking and canoeing", "trackDuration":"3 or 5 days","location":"Manawatu/Whanganui","difficulty":"Not Avaiable"},
+                "Abel Tasman Coast Track":{"length":"60km loop","trackType":"Walking and tramping", "trackDuration":"3-5 days","location":"Nelson/Tasman","difficulty":"Intermediate"},
+                "Heaphy Track":{"length":"78.4km return","trackType":"Walking and tramping", "trackDuration":"4-6 days","location":"Nelson/Tasman","difficulty":"Intermediate"},
+                "Routeburn Track":{"length":"32km one way","trackType":"Walking and tramping", "trackDuration":"2-4 days","location":"Otago/Fiordland","difficulty":"Intermediate"},
+                "Kepler Track":{"length":"53.5km one way","trackType":"Walking and tramping", "trackDuration":"4 days","location":"Fiordland","difficulty":"Intermediate"},
+                "Milford Track":{"length":"32km loop","trackType":"Walking and tramping", "trackDuration":"3 days","location":"Southland","difficulty":"Intermediate"}
+            }
+        </script>
         <div class="container" id="page-container">
             <div class="container" id="title">
                 <script>
@@ -86,7 +86,74 @@
         <!--Bootstrap Script-->
         
            <script type="text/javascript" src="main.js"></script>
-      
+            <div class="container" id="page-container">
+            <div class="container" id="title">
+                
+            </div>
+            <div class="container" id="top-container">
+                <p>Length: <span id="trackLength"></span></p>
+                <p>Track Type: <span id="trackType"></span></p>
+                <p>Track Duration: <span id="trackDuration"></span></p>
+                <p>Location: <span id="location"></span></p>
+                <p>Difficulty: <span id="difficulty"></span></p>
+            </div>
+            <div class="container" id="mid-container">
+                <p></p>
+           
+            <p  id="weatherText">Current weather</p>
+            <i id="icon" class="wi wi-day-sunny"></i>
+            <p  id="weatherText">Current Temperature</p>
+            <p id="showWea"></p>
+            
+                
+            
+            </div>
+            <div class="container" id="btm-container">
+                 <div>
+                    <form id="myForm">
+                        Enter your estimated time:<br>
+                        <input type="text" name="time" id="timeBox">
+                        <button type="submit">Go</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+              <!--jQuery Script-->
+        <script src="/js/jquery.min.js"></script>
+
+        <!--Bootstrap Script-->
+        
+           <script type="text/javascript" src="main.js"></script>
+
+           <script>
+               document.addEventListener("DOMContentLoaded", function(event) {
+                   initTracks();
+               });
+
+               function initTracks(){
+                 var islandPart = getUrlParameter("island");
+                    if (islandPart == "northIsland") {
+                        var trackName = getUrlParameter("northTracks");
+                        var str = trackName.split('+').join(' ');
+                        findTrack(str);
+                        document.getElementById("title").innerHTML = str;
+                    } else{
+                        var trackName = getUrlParameter("southTracks");
+                        var str = trackName.split('+').join(' ');
+                        findTrack(str);
+                        document.getElementById("title").innerHTML = str;
+                    }
+               }
+
+                    function findTrack(trackName){
+                        var track = newText[trackName]
+                        document.getElementById('trackLength').innerHTML = track.length;
+                        document.getElementById('trackType').innerHTML = track.trackType;
+                        document.getElementById('trackDuration').innerHTML = track.trackDuration;
+                        document.getElementById('location').innerHTML = track.location;
+                        document.getElementById('difficulty').innerHTML = track.difficulty;
+                    }
+            </script>
     </body>
 </html>
 
