@@ -72,14 +72,14 @@
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
-      document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
-      window.location="selectwalk.html";  
+      if(window.location.pathname != "/selectwalk.html"){
+          window.location="selectwalk.html";  
+      }
     });
   }
 
 function processForm(e) {
-    if (e.preventDefault) e.preventDefault();
+   
 
     /* do what you want with the form */
 
@@ -100,16 +100,16 @@ function removeAlert(){
   sendFbPostRequest(msgType);
 }
 
-function sendFbPostRequest(msgType, eta = null){
+function sendFbPostRequest(msgType, eta){
     var response = FB.getAuthResponse();
-    if (response.status === 'connected') {
+    if (response.accessToken != null) {
       var accessToken = response.accessToken;
-      var fbPostObj = JSON.stringify({
+      var fbPostObj = {
         "messageType" : msgType,
         "time" : eta,
         "token" : accessToken
-      });
-      $.post("localhost:8000",fbPostObj, function(status){
+      };
+      $.post("/alert",fbPostObj, function(status){
         console.log(status);
       });
     } else if (response.status === 'not_authorized') {
@@ -122,4 +122,10 @@ function sendFbPostRequest(msgType, eta = null){
       document.getElementById('status').innerHTML = 'Please log ' +
         'into Facebook.';
     }
-};
+}
+
+var form = document.getElementById("myForm");
+form.addEventListener("submit", function(e){
+  e.preventDefault();
+  setAlert();
+});
