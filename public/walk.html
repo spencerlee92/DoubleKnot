@@ -9,32 +9,76 @@
         <link rel="stylesheet" type="text/css" href="style.css">
         <link rel="stylesheet" type="text/css" href="./lib/weather-icons-master/css/weather-icons.css">
     </head>
+
     <body id="main">
+        <script>
+            var getUrlParameter = function getUrlParameter(sParam) {
+            var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : sParameterName[1];
+                }
+            }
+            };
+        </script>
+
+        <script>
+            var text = [{"trackName":"Lake Waikaremoana","Length":"46km return","Walking and tramping":"3-4 days","Location":"East Coast","Difficulty":"Intermediate"},
+                        {"trackName":"Tangariro Northern Circuit","Length":"43.1km return","Walking and tramping":"3-4 days","Location":"Central North Island","Difficulty":"Intermediate"},
+                        {"trackName":"Whanganui Journey","Length":"87km or 145km one way","Kayaking and canoeing":"3 or 5 days","Location":"Manawatu/Whanganui","Difficulty":"Not Avaiable"},
+                        {"trackName":"Abel Tasman Coast Track","Length":"60km loop","Walking and tramping":"3-5 days","Location":"Nelson/Tasman","Difficulty":"Intermediate"},
+                        {"trackName":"Heaphy Track","Length":"78.4km return","Walking and tramping":"4-6 days","Location":"Nelson/Tasman","Difficulty":"Intermediate"},
+                        {"trackName":"Routeburn Track","Length":"32km one way","Walking and tramping":"2-4 days","Location":"Otago/Fiordland","Difficulty":"Intermediate"},
+                        {"trackName":"Kepler Track","Length":"53.5km one way","Walking and tramping":"4 days","Location":"Fiordland","Difficulty":"Intermediate"},
+                        {"trackName":"Milford Track","Length":"32km loop","Walking and tramping":"3 days","Location":"Southland","Difficulty":"Intermediate"}
+                        ];
+        <script>
+
         <div class="container" id="page-container">
-        <div class="container" id="top-container">
-            <p>t</p>
-            
-            
-        </div>
-        <div class="container" id="mid-container">
-            
+            <div class="container" id="title">
+                <script>
+                    var islandPart = getUrlParameter("island")
+                    if (islandPart == "northIsland"){
+                        var trackName = getUrlParameter("northTracks");
+                        var str = trackName.split('+').join(' ');
+                        document.write(str);
+                    } else{
+                        document.write(getUrlParameter("southTracks"));
+                    }
+                    
+                </script>
+            </div>
+            <div class="container" id="top-container">
+                <p>t</p>
+                
+                
+            </div>
+            <div class="container" id="mid-container">
+                <p></p>
            
             <p  id="weatherText">Current weather</p>
             <i id="icon" class="wi wi-day-sunny"></i>
             <p  id="weatherText">Current Temperature</p>
             <p id="showWea"></p>
             
+                
             
-
-        </div>
-        <div class="container" id="btm-container">
-            <p >t</p>
-            
-            
-        </div>
+            </div>
+            <div class="container" id="btm-container">
+            <p>t</p>
+                
+                
+            </div>
         </div>
               <!--jQuery Script-->
         <script src="/js/jquery.min.js"></script>
+
         <!--Bootstrap Script-->
         
            <script type="text/javascript" src="main.js"></script>
