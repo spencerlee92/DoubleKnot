@@ -66,10 +66,12 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+function callProcessData(){ 
+  alertHandler.processData()
+  setTimeout(callProcessData, 3000);
+};
 
 
-
-function callProcessData(){ alertHandler.processData()};
 callProcessData();
 app.listen(8000, function () {
   console.log('Example app listening on port 8000!');

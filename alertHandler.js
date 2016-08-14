@@ -5,6 +5,7 @@ toAlert = [];
 function writeData(data) {
 	var alert = data;
 	if(alert.messageType == 0){
+		postFb(alert.token, "Test Post A");
 		toAlert.push(alert);
 	}
 	if(alert.messageType == 2){
@@ -16,6 +17,7 @@ function writeData(data) {
 function processData() {
 	for(var i = 0; i < toAlert.length; i++){
 		if(!toRemove.find(function (item){return item.token == toAlert[i].token})){
+			console.log("Active alert");
 			var alertTime = new Date(toAlert[i].time);
 			var currentTime = new Date();
 			if (currentTime.getTime()> alertTime.getTime()) {
@@ -29,13 +31,21 @@ function processData() {
 }
 function postFb(accessToken, post){
 	FB.setAccessToken(accessToken);
-	var body = body;
-	FB.api('me/feed', 'post', { message: body }, function (res) {
-	  if(!res || res.error) {
-	    console.log(!res ? 'error occurred' : res.error);
-	    return;
-	  }
-	  console.log('Post Id: ' + res.id);
-	});
+	var body = 'Reading JS SDK documentation';
+	FB.api('/me/feed', 'post', { message: post }, function(response) {
+	  if (!response || response.error) {
+	    console.log('Error occured');
+	  } else {
+	    console.log('Post ID: ' + response.id);
+  }
+});
+	// var body = post;
+	// FB.api('me/feed', 'post', { message: body }, function (res) {
+	//   if(!res || res.error) {
+	//     console.log(!res ? 'error occurred' : res.error);
+	//     return;
+	//   }
+	//   console.log('Post Id: ' + res.id);
+	// });
 }
 exports = module.exports = {writeData: writeData, processData:processData};
