@@ -78,14 +78,21 @@
     });
   }
 
+function processForm(e) {
+    if (e.preventDefault) e.preventDefault();
+
+    /* do what you want with the form */
+
+    // You must return false to prevent the default form behavior
+    return false;
+}
+
 function setAlert(){
-  $('insertFormIDHere').on("submit", function(event){
-    event.preventDefault();
-    var etaValue = paresInt($(this).serialize());
-    var eta = new Date(new Date() + etaValue*3600000);
+    var etaValue = parseInt(document.getElementById("timeBox").value);
+    var eta = new Date();
+    eta = new Date(eta.getTime() + etaValue*3600000);
     msgType = 0;
     sendFbPostRequest(msgType, eta);
-  });
 }
 
 function removeAlert(){
@@ -102,7 +109,7 @@ function sendFbPostRequest(msgType, eta = null){
         "time" : eta,
         "token" : accessToken
       });
-      $.post("localhost:3001",fbPostObj, function(status){
+      $.post("localhost:8000",fbPostObj, function(status){
         console.log(status);
       });
     } else if (response.status === 'not_authorized') {
