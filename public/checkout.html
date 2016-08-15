@@ -13,23 +13,19 @@
                 <span class="glyphicon glyphicon glyphicon-chevron-right"></span> DoubleKnot
             </h1>
             <h2 id="page-header">
-                Start your adventure.
+                Please remember to checkout after you have completed the track!
             </h2>
-            <script src="/js/fbLogin.js"></script>
-            <div class="btn-wrapper">
-                <label class="btn btn-info">
-                    Login with Facebook
-                </label>
-            </div>
-            <fb:login-button scope="manage_pages, publish_actions" onlogin="checkLoginState();">
-            </fb:login-button>
 
-            <div id="status">
+            <div class="btn-wrapper" onclick="removeAlert()">
+                <label class="btn btn-info">
+                    Checkout
+                </label>
             </div>
         </div>
 
         <!--jQuery Script-->
-        <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/fbLogin.js"></script>
         <!--Bootstrap Script-->
         <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
         

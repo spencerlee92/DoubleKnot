@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DoubleKnot</title>
+        <!--Boostrap's CSS-->
+        <link rel="stylesheet" type="text/css" href="lib/bootstrap/dist/css/bootstrap.min.css">
+        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="doubleknot2.css">
+        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    </head>
+    <body id="main">
+      <nav class="navbar-default">
+      <ul>
+        <li class="dropdown">
+          <a href="#walks" class="dropbtn"></a>
+          <div class="dropdown-content">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+          </div>
+        </li>
+      </ul>
+      <p class="home">DoubleKnot</p>
+      </nav>
+        <div class="container" id="page-container">
+          <div class="test">
+            <h2 class="select-adv">Select your adventure</h2>
+
+            <script>
+            function schedule(){
+                var island = document.getElementById('island').value;
+                if (island == "northIsland"){
+                document.getElementById("emptyOption").style.display="none"
+                document.getElementById("north").style.display ="inline"
+                } else{
+                document.getElementById("emptyOption").style.display="none"
+                document.getElementById("south").style.display="inline"
+                }
+            }
+            </script>
+            <br>
+            <form method="GET" action="walk.html">
+            <h2>I am in the:
+            <select name="island"id="island" onChange="schedule()">
+                <option value="default" disabled selected value></option>
+                <option value="northIsland">North Island</option>
+                <option value="southIsland">South Island</option>
+            </select>
+          </h2>
+          <br>
+            <h2>Pick your walk:
+            <select name="empty" disabled id="emptyOption"></select>
+            <select name="northTracks" style="display:none" id="north">
+                <option value="Lake Waikaremoana">Lake Waikaremoana</option>
+                <option value="Tongariro Northen Circuit">Tongariro Northen Circuit</option>
+                <option value="Whanganui Journey">Whanganui Journey</option>
+            </select>
+            <select name="southTracks" style="display:none" id="south">
+                <option value="Abel Tasman Coast Track">Abel Tasman Coast Track</option>
+                <option value="Heaphy Track">Heaphy Track</option>
+                <option value="Routeburn Track">Routeburn Track</option>
+                <option value="Kepler Track">Kepler Track</option>
+                <option value="Milford Track">Milford Track</option>
+                <option value="Rakiura Track">Rakiura Track</option>
+            </select>
+          </h2>
+            </div>
+            <button class="bttn">
+
+                    <img src="http://downloadicons.net/sites/default/files/forward-button-icon-27809.png" width="42" height="42" border="0"></>
+                </button>
+            </form>
+        </div>
+        
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/fbLogin.js"></script>
+        <!--Bootstrap Script-->
+        <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    </body>
+</html>
