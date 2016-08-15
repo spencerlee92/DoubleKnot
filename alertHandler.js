@@ -5,7 +5,7 @@ toAlert = [];
 function writeData(data) {
 	var alert = data;
 	if(alert.messageType == 0){
-		var msg = "Hey guys, I'm about to go on the " + alert.trackName + "! I should be back in " + alert.etaValue + " days.";
+		var msg = "Hey guys, I'm at" + alert.trackName + "! I should be back in " + alert.etaValue + " days.";
 		postFb(alert.token, msg);
 		toAlert.push(alert);
 	}
