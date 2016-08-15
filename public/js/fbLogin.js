@@ -72,8 +72,8 @@
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
-      if(window.location.pathname != "/selectwalk.html"){
-          window.location="selectwalk.html";  
+      if(window.location.pathname == "/homepage.html"){
+          window.location="page2.html";  
       }
     });
   }
@@ -91,20 +91,16 @@ function setAlert(){
     var etaValue = parseInt(document.getElementById("timeBox").value);
     var eta = new Date();
     eta = new Date(eta.getTime() + etaValue*3600000*24);
-    var north = $("#north");
-    var south = $("#south");
-    if(north.is(":visible")){
-      var trackName = north.val();
-    }else{
-      var trackName = south.val();
-    }
+    var trackName = document.getElementById("title").innerHTML;
     msgType = 0;
     sendFbPostRequest(msgType, eta, trackName, etaValue);
 }
 
 function removeAlert(){
-  msgType = 1;
+  msgType = 2;
   sendFbPostRequest(msgType);
+  alert("Successfully checked out!");
+  window.location = "homepage.html";
 }
 
 function sendFbPostRequest(msgType, eta, trackName, etaValue){
@@ -134,7 +130,9 @@ function sendFbPostRequest(msgType, eta, trackName, etaValue){
 }
 
 var form = document.getElementById("myForm");
+if(form)
 form.addEventListener("submit", function(e){
   e.preventDefault();
   setAlert();
+  window.location = "checkout.html";
 });

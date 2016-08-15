@@ -40,52 +40,8 @@
                 "Milford Track":{"length":"32km loop","trackType":"Walking and tramping", "trackDuration":"3 days","location":"Southland","difficulty":"Intermediate"}
             }
         </script>
-        <div class="container" id="page-container">
-            <div class="container" id="title">
-                <script>
-                    var islandPart = getUrlParameter("island")
-                    if (islandPart == "northIsland"){
-                        var trackName = getUrlParameter("northTracks");
-                        var str = trackName.split('+').join(' ');
-                        document.write(str);
-                    } else{
-                        document.write(getUrlParameter("southTracks"));
-                    }
-                    
-                </script>
-            </div>
-            <div class="container" id="top-container">
-                <p>t</p>
-                
-                
-            </div>
-            <div class="container" id="mid-container">
-                <p></p>
-           
-            <p  id="weatherText">Current weather</p>
-            <i id="icon" class="wi wi-day-sunny"></i>
-            <p  id="weatherText">Current Temperature</p>
-            <p id="showWea"></p>
-            
-                
-            
-            </div>
-            <div class="container" id="btm-container">
-                 <div>
-                    <form id="myForm">
-                        Enter your estimated time:<br>
-                        <input type="text" name="time" id="timeBox">
-                        <button type="submit">Go</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-              <!--jQuery Script-->
-        <script src="/js/jquery.min.js"></script>
-
-        <!--Bootstrap Script-->
         
-           <script type="text/javascript" src="main.js"></script>
+
             <div class="container" id="page-container">
             <div class="container" id="title">
                 
@@ -108,6 +64,7 @@
                 
             
             </div>
+            
             <div class="container" id="btm-container">
                  <div>
                     <form id="myForm">
@@ -120,7 +77,7 @@
         </div>
               <!--jQuery Script-->
         <script src="/js/jquery.min.js"></script>
-
+        <script src="/js/fbLogin.js"></script>
         <!--Bootstrap Script-->
         
            <script type="text/javascript" src="main.js"></script>

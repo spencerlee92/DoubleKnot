@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DoubleKnot</title>
+        <!--Boostrap's CSS-->
+        <link rel="stylesheet" type="text/css" href="lib/bootstrap/dist/css/bootstrap.min.css">
+        <!--Custom CSS-->
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="container" id="page-container">
+            <h1 id="app-name">
+                <span class="glyphicon glyphicon glyphicon-chevron-right"></span> DoubleKnot
+            </h1>
+            <h2 id="page-header">
+                Please remember to checkout after you have completed the track!
+            </h2>
+
+            <div class="btn-wrapper" onclick="removeAlert()">
+                <label class="btn btn-info">
+                    Checkout
+                </label>
+            </div>
+        </div>
+
+        <!--jQuery Script-->
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/fbLogin.js"></script>
+        <!--Bootstrap Script-->
+        <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        
+    </body>
+</html>
